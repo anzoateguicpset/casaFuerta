@@ -1,0 +1,98 @@
+<html>
+	</head>
+		<meta content="Jeffrey Sanchez" name="author">
+		<title>Pantalla Ubicaci&oacute;n de la Casa Fuerte</title>
+
+		<style type="text/css">
+		.shakeimage{
+		position: relative
+		}
+
+		body{
+			background-image:url(../imagenes/png/Fondos/Fondo_import.png);
+			background-repeat:no-repeat;
+		}
+		</style>
+		<script language="JavaScript1.3" src="../js/euDock.2.0.js"></script>
+		<script language="JavaScript1.3" src="../js/euDock.Image.js"></script>
+		<!--Funciones para la ejecucion de las animaciones en las imagenes-->
+		<script language="JavaScript1.2">
+			var rector=5
+			var stopit=0 
+			var a=1
+
+			function init(which){
+				stopit=0
+				shake=which
+				shake.style.left=370
+				shake.style.top=90
+			}
+
+			function rattleimage(){
+				if ((!document.all&&!document.getElementById)||stopit==1)
+					return
+				if (a==1){
+					shake.style.top=parseInt(shake.style.top)+rector
+				}
+				else if (a==2){
+					shake.style.left=parseInt(shake.style.left)+rector
+				}
+				else if (a==3){
+					shake.style.top=parseInt(shake.style.top)-rector
+				}
+				else{
+					shake.style.left=parseInt(shake.style.left)-rector
+				}
+				if (a<4)
+					a++
+				else
+					a=1
+				setTimeout("rattleimage()",40)
+			}
+
+			function stoprattle(which){
+				stopit=1
+				which.style.left=370
+				which.style.top=90
+			}
+		</script>
+	</head>
+	<body>
+		<!--Imagen de las rejas-->
+			<img src="../imagenes/png/Personas y Objetos/Rejas.png" style="border: 0px solid; position: absolute; top: 0px; left: 404px; width: 619px; height: 569px;">
+		<!--Imagen del pergamino abierto-->
+		<a href="../Paginas/Importancia.html">
+			<img src="../imagenes/png/Pergaminos/Perg_import.png" alt="Cerrar" style="border: 0px solid; position: absolute; top: 6px; left: 29px; width: 432px; height: 532px;"
+		></a>
+		<!--Imagen de la pluma con animacion-->
+		<a href="../Actividades/actividad_importancia.ods">
+			<img src="../imagenes/png/Personas y Objetos/pluma.png" alt="Abrir Pergamino" style="border: 0px solid; position: absolute; top: 90px; left: 370px; width: 200px;
+			height: 420px;" class="shakeimage" onmouseover="init(this);rattleimage()" onmouseout="stoprattle(this)"
+		></a>
+		<!--Pergamino con iteraccion-->
+		<img src="../imagenes/png/Pergaminos/Curiosidades.png" alt="Ubicacion" onmouseout='src="../imagenes/png/Pergaminos/Curiosidades.png"'
+			onmouseover='src="../imagenes/png/Pergaminos/CuriosidadesII.png"' style="border: 0px solid; position: absolute; top: 150px; left: 530px; width: 445px;
+			height: 241px;"
+		>
+		<!--Imagen del barner inferior-->
+		<img src="../imagenes/png/Barras/Barner_Import.png" style="border: 0px solid; position: absolute; top: 399px;
+			left: -12px; width: 1035px; height: 172px;"
+		>
+	</body>
+</html>
+
+<!--Posicionamiento e insercion de las imagenes del menu-->
+<script>
+   euEnv.imageBasePath="js/";
+   var dock_4 = new euDock();   
+   dock_4.setScreenAlign(euDOWN,15);   
+   dock_4.setBar({left:{euImage:{image:"../imagenes/png/menu/barImages/dockBg-l.png"}},horizontal:{euImage:{image:"../imagenes/png/menu/barImages/dockBg-c-o.gif"}},
+		right:{euImage:{image:"../imagenes/png/menu/barImages/dockBg-r.png"}}});   
+   dock_4.setIconsOffset(2);   		
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Inicio.png" }}),{link:"../Presentacion/index.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Ubicacion.png"}}),{link:"../Paginas/Ubicacion.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Personajes.png"}}),{link:"../Paginas/Personajes.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Sucesos.png"}}),{link:"../Paginas/Sucesos.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Galeria.png"}}),{link:"../Paginas/Galeria.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Boton_orientaciones.png"}}),{link:"../Paginas/Orientaciones.html"});
+</script>

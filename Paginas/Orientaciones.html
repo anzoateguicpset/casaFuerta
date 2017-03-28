@@ -1,0 +1,46 @@
+<html>
+	</head>
+		<meta content="Jeffrey Sanchez" name="author">
+		<title>Pantalla Ubicaci&oacute;n de la Casa Fuerte</title>
+		<style type="text/css">
+			body{
+				background-image:url(../imagenes/png/Fondos/Fondo_orientacionesPrinc.png);
+				background-repeat:no-repeat;
+			}
+		</style>
+		<script language="JavaScript1.3" src="../js/euDock.2.0.js"></script>
+		<script language="JavaScript1.3" src="../js/euDock.Image.js"></script>
+	</head>
+	<body>
+		<a href="../Paginas/Pedagogicas.html">
+			<img src="../imagenes/png/Botones/Docentes.png" alt="Abrir Pergamino" style="border: 0px solid; position: absolute; top: 300px; left: 175px; width: 184px;
+			height: 162px;"
+		></a>
+		<a href="../Paginas/Ninas_y_Ninos.html">
+			<img src="../imagenes/png/Botones/Alumnos.png" alt="Abrir Pergamino" style="border: 0px solid; position: absolute; top: 70px; left: 405px; width: 193px;
+			height: 162px;"
+		></a>
+		<a href="../Paginas/Representantes.html">
+			<img src="../imagenes/png/Botones/Representantes.png" alt="Abrir Pergamino" style="border: 0px solid; position: absolute; top: 200px; left: 700px; width: 182px;
+			height: 169px;"
+		></a>
+		<!--Imagen del barner inferior-->
+		<img src="../imagenes/png/Barras/Barner_princ.png" style="border: 0px solid; position: absolute; top: 399px;	left: -12px; width: 1035px; height: 172px;">
+	</body>
+</html>
+
+<!--Posicionamiento e insercion de las imagenes del menu-->
+<script>
+   euEnv.imageBasePath="js/";
+   var dock_4 = new euDock();   
+   dock_4.setScreenAlign(euDOWN,15);   
+   dock_4.setBar({left:{euImage:{image:"../imagenes/png/menu/barImages/dockBg-l.png"}},horizontal:{euImage:{image:"../imagenes/png/menu/barImages/dockBg-c-o.gif"}},
+		right:{euImage:{image:"../imagenes/png/menu/barImages/dockBg-r.png"}}});   
+   dock_4.setIconsOffset(2);   		
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Inicio.png" }}),{link:"../Presentacion/index.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Ubicacion.png"}}),{link:"../Paginas/Ubicacion.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Importancia.png"}}),{link:"../Paginas/Importancia.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Personajes.png"}}),{link:"../Paginas/Personajes.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Sucesos.png"}}),{link:"../Paginas/Sucesos.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Galeria.png"}}),{link:"../Paginas/Galeria.html"});
+</script>

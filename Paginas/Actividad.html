@@ -1,0 +1,82 @@
+<html>
+	</head>
+		<meta content="Jeffrey Sanchez" name="author">
+		<title>Actividad</title>
+		<style type="text/css">
+		body{
+			background-image:url(../imagenes/png/Actividad/Fondo_actividad.png);
+			background-repeat:no-repeat;
+		}
+		</style>
+		<script language="JavaScript1.2">
+			var rector=5
+			var stopit=0 
+			var a=1
+
+			function init(which){
+				stopit=0
+				shake=which
+				shake.style.left=840
+				shake.style.top=440
+			}
+
+			function rattleimage(){
+				if ((!document.all&&!document.getElementById)||stopit==1)
+					return
+				if (a==1){
+					shake.style.top=parseInt(shake.style.top)+rector
+				}
+				else if (a==2){
+					shake.style.left=parseInt(shake.style.left)+rector
+				}
+				else if (a==3){
+					shake.style.top=parseInt(shake.style.top)-rector
+				}
+				else{
+					shake.style.left=parseInt(shake.style.left)-rector
+				}
+				if (a<4)
+					a++
+				else
+					a=1
+				setTimeout("rattleimage()",40)
+			}
+
+			function stoprattle(which){
+				stopit=1
+				which.style.left=840
+				which.style.top=440
+			}
+		</script>
+	</head>
+	<body>
+		<!--Croquis-->
+		<img src="../imagenes/png/Actividad/Croquis.png" height="213" border="0" style="border: 0px solid; position: absolute; top: 2px; width: 1024px; height: 572px;"
+		>
+		<!--Este-->
+		<img src="../imagenes/png/Actividad/Este_Peq.png" alt="Ubicacion" onmouseout='src="../imagenes/png/Actividad/Este_Peq.png"'
+			onmouseover='src="../imagenes/png/Actividad/Este_grande.png"' onclick="alert('Se ubica con la biblioteca \n Se encuentra en la calle Eulalia Buroz');"
+			style="border: 0px solid; position: absolute; top: 205px; left: 150px; width: 134px; height: 139px;"
+		>
+		<!--Oeste-->
+		<img src="../imagenes/png/Actividad/Oeste_Peq.png" alt="Ubicacion" onmouseout='src="../imagenes/png/Actividad/Oeste_Peq.png"'
+			onmouseover='src="../imagenes/png/Actividad/Oeste_grande.png"' onclick="alert('Se encuentra aleda&ntilde;a a la Avenida Caracas');"
+			style="border: 0px solid; position: absolute; top: 205px; left: 750px; width: 122px; height: 140px;"
+		>
+		<!--Norte-->
+		<img src="../imagenes/png/Actividad/Norte_Peq.png" alt="Ubicacion" onmouseout='src="../imagenes/png/Actividad/Norte_Peq.png"'
+			onmouseover='src="../imagenes/png/Actividad/Norte_grande.png"' onclick="alert('Encontramos la avenida 5 de Julio');"
+			style="border: 0px solid; position: absolute; top: 2px; left: 434px; width: 150px; height: 109px;"
+		>
+		<!--Sur-->
+		<img src="../imagenes/png/Actividad/Sur_Peq.png" alt="Ubicacion" onmouseout='src="../imagenes/png/Actividad/Sur_Peq.png"'
+			onmouseover='src="../imagenes/png/Actividad/Sur_grande.png"' onclick="alert('Se observa la calle Zamora');"
+			style="border: 0px solid; position: absolute; top: 447px; left: 433px; width: 149px; height: 123px;"
+		>
+		<!--Boton Regresar-->
+		<a href="../Paginas/Ubicacion_Final.html">
+			<img src="../imagenes/png/Botones/Ubicacion.png" alt="Regresar" style="border: 0px solid; position: absolute; top: 440px; left: 840px; width: 150px; height: 120px;"
+			class="shakeimage" onmouseover="init(this);rattleimage()" onmouseout="stoprattle(this)"
+		></a>
+	</body>
+</html>

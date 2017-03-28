@@ -1,0 +1,75 @@
+<html>
+	</head>
+		<meta content="Jeffrey Sanchez" name="author">
+		<title>Pantalla Ubicaci&oacute;n de la Casa Fuerte</title>
+		<style type="text/css">
+			body{
+				background-image:url(../imagenes/png/Fondos/Fondo_sucesos.png);
+				background-repeat:no-repeat;
+			}
+		</style>
+		<script language="JavaScript1.3" src="../js/euDock.2.0.js"></script>
+		<script language="JavaScript1.3" src="../js/euDock.Image.js"></script>
+		<!--Funciones para la ejecucion de las animaciones en las imagenes-->
+		<script language="JavaScript1.2">
+			var rector=5
+			var stopit=0 
+			var a=1
+
+			function init(which){
+				stopit=0
+				shake=which
+				shake.style.left=675
+				shake.style.top=440
+			}
+
+			function rattleimage(){
+				if ((!document.all&&!document.getElementById)||stopit==1)
+					return
+				if (a==1){
+					shake.style.top=parseInt(shake.style.top)+rector
+				}
+				else if (a==2){
+					shake.style.left=parseInt(shake.style.left)+rector
+				}
+				else if (a==3){
+					shake.style.top=parseInt(shake.style.top)-rector
+				}
+				else{
+					shake.style.left=parseInt(shake.style.left)-rector
+				}
+				if (a<4)
+					a++
+				else
+					a=1
+				setTimeout("rattleimage()",40)
+			}
+
+			function stoprattle(which){
+				stopit=1
+				which.style.left=675
+				which.style.top=440
+			}
+		</script>
+	</head>
+	<body>
+		<!--Imagen del soldado grande-->
+		<img src="../imagenes/png/Personas y Objetos/Soldado_grande.png" style="border: 0px solid; position: absolute; top: 2px; left: 617px; width: 406px; height: 569px;">
+		<!--Imagen de los monjes y soldados-->
+		<img src="../imagenes/png/Personas y Objetos/Monjes_y_soldados.png" style="border: 0px solid; position: absolute; top: 92px; left: 413px; width: 366px; height: 485px;">
+		<form>
+			<font color="000000"><p><b><big>Socializa con tus compa&ntilde;eras y compa&ntilde;eros la<br>&nbsp;&nbsp;&nbsp; informaci&oacute;n leida y transcribe tu opini&oacute;n.</big></b></p></font>
+		</form>
+		<!--Area de texto-->
+		<form>
+			<textarea NAME="texto" ROWS="28" COLS="55"></textarea>
+		</form>
+		<!--Imagen del barner inferior-->
+		<img src="../imagenes/png/Barras/Barner_sus.png" style="border: 0px solid; position: absolute; top: 399px; left: -12px; width: 1035px; height: 172px;">
+		<!--Boton Regresar-->
+		<a href="../Paginas/Sucesos_Final.html">
+			<img src="../imagenes/png/Botones/Sucesos.png" alt="Regresar" style="border: 0px solid; position: absolute; top: 440px; left: 675px; width: 150px; height: 120px;"
+			class="shakeimage" onmouseover="init(this);rattleimage()" onmouseout="stoprattle(this)"
+		></a>
+	</body>
+</html>

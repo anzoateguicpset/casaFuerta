@@ -1,0 +1,109 @@
+<html>
+	</head>
+		<meta content="Jeffrey Sanchez" name="author">
+		<title>Pantalla Personajes</title>
+		<style type="text/css">
+			body{
+				background-image:url(../imagenes/png/Fondos/Fondo_per.png);
+				background-repeat:no-repeat;
+			}
+		</style>
+		<script language="JavaScript1.3" src="../js/euDock.2.0.js"></script>
+		<script language="JavaScript1.3" src="../js/euDock.Image.js"></script>
+		<script type="text/javascript" src="../js/mootools.js"></script>
+		<script type="text/javascript" src="../js/slimbox.js"></script>
+		<link rel="stylesheet" href="../js/slimbox.css" type="text/css" media="screen" />
+		<!--Funciones para la ejecucion de las animaciones en las imagenes-->
+		<script language="JavaScript1.2">
+			var rector=4
+			var stopit=0 
+			var a=1
+
+			function init(which){
+				stopit=0
+				shake=which
+				shake.style.left=290
+				shake.style.top=295
+			}
+
+			function rattleimage(){
+				if ((!document.all&&!document.getElementById)||stopit==1)
+					return
+				if (a==1){
+					shake.style.top=parseInt(shake.style.top)+rector
+				}
+				else if (a==2){
+					shake.style.left=parseInt(shake.style.left)+rector
+				}
+				else if (a==3){
+					shake.style.top=parseInt(shake.style.top)-rector
+				}
+				else{
+					shake.style.left=parseInt(shake.style.left)-rector
+				}
+				if (a<4)
+					a++
+				else
+					a=1
+				setTimeout("rattleimage()",50)
+			}
+
+			function stoprattle(which){
+				stopit=1
+				which.style.left=290
+				which.style.top=295
+			}
+		</script>
+	</head>
+	<body>
+
+		<!--Imagen de Freites-->
+		<img src="../imagenes/png/Personas y Objetos/Freites.png" style="border: 0px solid;	position: absolute; top: 2px; left: 689px; width: 334px; height: 569px;">
+		<!--Imagen de Eulalia-->
+		<img src="../imagenes/png/Personas y Objetos/Eulalia.png" style="border: 0px solid;	position: absolute; top: 63px; left: 585px; width: 318px; height: 511px;">
+		<!--Imagen del pergamino abierto-->
+		<a href="../Paginas/Personajes.html">
+			<img src="../imagenes/png/Pergaminos/Perg_per.png" alt="Grandes Personajes..." style="border: 0px solid;	position: absolute; top: 6px; left: 15px; width: 415px;
+			height: 510px;"
+		></a>
+		<!--Pergamino Wilians-->
+		<a href="../imagenes/png/Pergaminos/Wilians.png" rel="lightbox[Pergamino]" title="Wiliams Charles Chamberlain">
+			<img src="../imagenes/png/Pergaminos/Perg_Wilians.png" style="border: 0px solid; position: absolute; top: 210px; left: 545px;	width: 165px; height: 196px;"
+		></a>
+
+		<!--Pergamino Eulalia-->
+		<a href="../imagenes/png/Pergaminos/Eulalia.png" rel="lightbox[Pergamino]" title="Eulalia Buroz">
+			<img src="../imagenes/png/Pergaminos/Perg_Eulalia.png" style="border: 0px solid;	position: absolute; top: 170px; left: 420px; width: 224px; height: 272px;"
+		></a>
+		<!--Pergamino Esteban-->
+		<a href="../imagenes/png/Pergaminos/Esteban_Rivas.png" rel="lightbox[Pergamino]" title="Esteban Rivas">
+			<img src="../imagenes/png/Pergaminos/Perg_Esteban.png" style="border: 0px solid;	position: absolute; top: 80px; left: 350px; width: 183px; height: 203px;"
+		></a>
+		<!--Pergamino Freites-->
+		<a href="../imagenes/png/Pergaminos/Freites.png" rel="lightbox[Pergamino]" title="Pedro Maria Feites">
+			<img src="../imagenes/png/Pergaminos/Perg_Freites.png" style="border: 0px solid;	position: absolute; top: 282px; left: 350px; width: 133px; height: 154px;"
+		></a>
+<!--Imagen de la pluma con animacion-->
+		<a href="../Actividades/actividad_personajes.ods">
+			<img src="../imagenes/png/Personas y Objetos/pluma.png" alt="Abrir Pergamino" style="border: 0px solid; position: absolute; top: 295px; left: 			290px; width: 101px;height: 189px;" class="shakeimage" onmouseover="init(this);rattleimage()" onmouseout="stoprattle(this)"
+		></a>
+		<!--Imagen del barner inferior-->
+		<img src="../imagenes/png/Barras/Barner_per.png" style="border: 0px solid;	position: absolute; top: 399px; left: -12px; width: 1035px; height: 172px;">
+	</body>
+</html>
+
+<!--Posicionamiento e insercion de las imagenes del menu-->
+<script>
+   euEnv.imageBasePath="js/";         
+   var dock_4 = new euDock();   
+   dock_4.setScreenAlign(euDOWN,15);   
+   dock_4.setBar({left:{euImage:{image:"../imagenes/png/menu/barImages/dockBg-l.png"}},horizontal:{euImage:{image:"../imagenes/png/menu/barImages/dockBg-c-o.gif"}},
+		right:{euImage:{image:"../imagenes/png/menu/barImages/dockBg-r.png"}}});   
+   dock_4.setIconsOffset(2);   		
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Inicio.png" }}),{link:"../Presentacion/index.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Ubicacion.png"}}),{link:"../Paginas/Ubicacion.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Importancia.png"}}),{link:"../Paginas/Importancia.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Sucesos.png"}}),{link:"../Paginas/Sucesos.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Galeria.png"}}),{link:"../Paginas/Galeria.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Boton_orientaciones.png"}}),{link:"../Paginas/Orientaciones.html"});
+</script>

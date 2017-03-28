@@ -1,0 +1,142 @@
+<html>
+	</head>
+		<meta content="Jeffrey Sanchez" name="author">
+		<title>Pantalla Ubicaci&oacute;n de la Casa Fuerte</title>
+
+		<style type="text/css">
+		.shakeimage{
+		position: relative
+		}
+				body{
+				background-image:url(../imagenes/png/Fondos/Fondo_ubic.png);
+				background-repeat:no-repeat;
+			}
+		</style>
+		<script language="JavaScript1.3" src="../js/euDock.2.0.js"></script>
+		<script language="JavaScript1.3" src="../js/euDock.Image.js"></script>
+		<!--Funciones para la ejecucion de las animaciones en las imagenes-->
+		<script language="JavaScript1.2">
+			var rector=4
+			var stopit=0 
+			var a=1
+
+			function init(which){
+				stopit=0
+				shake=which
+				shake.style.left=0
+				shake.style.top=0
+			}
+
+
+			function rattleimage(){
+				if ((!document.all&&!document.getElementById)||stopit==1)
+					return
+				if (a==1){
+					shake.style.top=parseInt(shake.style.top)+rector
+				}
+				else if (a==2){
+					shake.style.left=parseInt(shake.style.left)+rector
+				}
+				else if (a==3){
+					shake.style.top=parseInt(shake.style.top)-rector
+				}
+				else{
+					shake.style.left=parseInt(shake.style.left)-rector
+				}
+				if (a<4)
+					a++
+				else
+					a=1
+				setTimeout("rattleimage()",50)
+			}
+
+			function stoprattle(which){
+				stopit=1
+				which.style.left=0
+				which.style.top=0
+			}
+
+		</script>
+	</head>
+	<body>
+		<!--Imagen del mapa de anzoategui-->
+		<img src="../imagenes/png/Personas y Objetos/Anzoategui_mapa.png" alt="Ubicacion" style="border: 0px solid; position: absolute; top: 5px; left: 520px; width: 490px;
+			height: 440px;"
+		>
+	
+	<!--Imagen del pergamino abierto-->
+		<a href="../Paginas/Ubicacion.html">
+			<img src="../imagenes/png/Pergaminos/Perg_ubic.png" alt="Ubicacion" style="border: 0px solid; position: absolute; top: 6px; left: 29px; width: 432px; height: 512px;"
+		></a>
+
+<!--Imagen de pluma y brujula con animación-->
+<table style="text-align: left; width: 989px; height: 540px;" border="0" cellpadding="90" cellspacing="2">
+
+    <tr>
+
+
+
+      <td style="width: 0px; height: 222px;"></td>
+
+
+
+      <td style="width: 523px; height: 222px;"></td>
+
+
+
+    </tr>
+
+
+
+    <tr>
+
+
+
+      <td style="width: 0px; height: 118px;"></td>
+
+
+
+      <td style="position: absolute; top: -20px; left: 275px; width: 523px; height: 118px;">
+
+
+<a href="../Actividades/actividad_ubicacion.ods"><img style="border: 0px solid; width: 200px; height: 420px;" alt="a" src="../imagenes/png/Personas y Objetos/pluma.png" class="shakeimage" onmouseover="init(this);rattleimage()" onmouseout="stoprattle(this)"></a></td>
+
+
+     <td style="position: absolute; top: -75px; left: 685px;text-align: right; height: 121px;" colspan="3" rowspan="1">
+
+<a href="../Paginas/Actividad.html"><img style="border: 0px solid ; width: 250px; height: 260px;" alt="menu" src="../imagenes/png/Personas y Objetos/Brujula.png" class="shakeimage" onmouseover="init(this);rattleimage()" onmouseout="stoprattle(this)"></a></td>
+
+
+
+
+      <td style="height: 118px;"></td>
+
+
+
+    </tr>
+
+</table>
+
+		<!--Pergamino con iteraccion-->
+		<img src="../imagenes/png/Pergaminos/Curiosidades.png" alt="Ubicacion" onmouseout='src="../imagenes/png/Pergaminos/Curiosidades.png"'
+			onmouseover='src="../imagenes/png/Pergaminos/CuriosidadesI.png"' style="border: 0px solid; position: absolute; top: 200px;	left: 530px; width: 445px; height: 241px;">
+		<!--Imagen del barner inferior-->
+		<img src="../imagenes/png/Barras/Barner_ubic.png" alt="Ubicacion" style="border: 0px solid; position: absolute; top: 399px; left: 0px; width: 1025px; height: 172px;">
+	</body>
+</html>
+
+<!--Posicionamiento e insercion de las imagenes del menu-->
+<script>
+   euEnv.imageBasePath="js/";
+   var dock_4 = new euDock();   
+   dock_4.setScreenAlign(euDOWN,15);   
+   dock_4.setBar({left:{euImage:{image:"../imagenes/png/menu/barImages/dockBg-l.png"}},horizontal:{euImage:{image:"../imagenes/png/menu/barImages/dockBg-c-o.gif"}},
+		right:{euImage:{image:"../imagenes/png/menu/barImages/dockBg-r.png"}}});   
+   dock_4.setIconsOffset(2);   		
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Inicio.png" }}),{link:"../Presentacion/index.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Importancia.png"}}),{link:"../Paginas/Importancia.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Personajes.png"}}),{link:"../Paginas/Personajes.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Sucesos.png"}}),{link:"../Paginas/Sucesos.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Galeria.png"}}),{link:"../Paginas/Galeria.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Boton_orientaciones.png"}}),{link:"../Paginas/Orientaciones.html"});
+</script>

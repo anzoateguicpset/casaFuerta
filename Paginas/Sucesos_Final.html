@@ -1,0 +1,106 @@
+<html>
+	</head>
+		<meta content="Jeffrey Sanchez" name="author">
+		<title>Pantalla Ubicaci&oacute;n de la Casa Fuerte</title>
+		<style type="text/css">
+			body{
+				background-image:url(../imagenes/png/Fondos/Fondo_sucesos.png);
+				background-repeat:no-repeat;
+			}
+		</style>
+		<script language="JavaScript1.3" src="../js/euDock.2.0.js"></script>
+		<script language="JavaScript1.3" src="../js/euDock.Image.js"></script>
+		<!--Funciones para la ejecucion de las animaciones en las imagenes-->
+		<script language="JavaScript1.2">
+			var rector=5
+			var stopit=0 
+			var a=1
+
+			function init(which){
+				stopit=0
+				shake=which
+				shake.style.left=318
+				shake.style.top=75
+			}
+
+			function rattleimage(){
+				if ((!document.all&&!document.getElementById)||stopit==1)
+					return
+				if (a==1){
+					shake.style.top=parseInt(shake.style.top)+rector
+				}
+				else if (a==2){
+					shake.style.left=parseInt(shake.style.left)+rector
+				}
+				else if (a==3){
+					shake.style.top=parseInt(shake.style.top)-rector
+				}
+				else{
+					shake.style.left=parseInt(shake.style.left)-rector
+				}
+				if (a<4)
+					a++
+				else
+					a=1
+				setTimeout("rattleimage()",40)
+			}
+
+			function stoprattle(which){
+				stopit=1
+				which.style.left=318
+				which.style.top=75
+			}
+		</script>
+	</head>
+	<body>
+		<!--Imagen del soldado grande-->
+		<img src="../imagenes/png/Personas y Objetos/Soldado_grande.png" style="border: 0px solid; position: absolute; top: 2px; left: 617px; width: 406px; height: 569px;">
+		<!--Imagen de los monjes y soldados-->
+		<img src="../imagenes/png/Personas y Objetos/Monjes_y_soldados.png" style="border: 0px solid; position: absolute; top: 92px; left: 413px; width: 366px; height: 485px;">
+		<!--Imagen del pergamino abierto-->
+		<a href="../Paginas/Sucesos.html">
+			<img src="../imagenes/png/Pergaminos/Pergamino_sus.png" alt="Cerrar Pergamino" style="border: 0px solid; position: absolute; top: 34px; left: -5px; width: 435px;
+			height: 462px;"
+		></a>
+		<!--Convento-->
+		<img src="../imagenes/png/Pergaminos/Convento.png" alt="Ubicacion" onmouseover="alert('Convento: \n Casa apartada del poblado \n habitada por comunidad de monjes');"
+			style="border: 0px solid; position: absolute; top: 158px; left: 257px; width: 113px; height: 27px;"
+		>
+		<!--Realista-->
+		<img src="../imagenes/png/Pergaminos/Realista.png" alt="Ubicacion"
+			onmouseover="alert('Realista: \n T&eacute;rmino empleado para referirse al bando \n formado principalmente por espa&ntilde;oles \n peninsulares y americanos');"
+			style="border: 0px solid; position: absolute; top: 251px; left: 237px; width: 91px; height: 30px;"
+		>
+		<!--Barceloneses-->
+		<img src="../imagenes/png/Pergaminos/Barceloneses.png" alt="Ubicacion"
+			onmouseover="alert('Barceloneses: \n Gentilicio de las personas nacidas \n en la ciudad de Barcelona - Venezuela');"
+			style="border: 0px solid; position: absolute; top: 396px; left: 164px; width: 161px; height: 31px;"
+		>
+		<!--Imagen de la pluma con animacion-->
+		<a href="../Paginas/Actividad_Sucesos.html">
+			<img src="../imagenes/png/Personas y Objetos/pluma.png" alt="Abrir Pergamino" style="border: 0px solid; position:	absolute; top: 75px; left: 318px; width: 200px;
+			height: 400px;" class="shakeimage" onmouseover="init(this);rattleimage()" onmouseout="stoprattle(this)"
+		></a>
+		<!--Pergamino con iteraccion-->
+		<img src="../imagenes/png/Pergaminos/Curiosidades.png" alt="Ubicacion" onmouseout='src="../imagenes/png/Pergaminos/Curiosidades.png"'
+			onmouseover='src="../imagenes/png/Pergaminos/CuriosidadesIII.png"' style="border: 0px solid; position: absolute; top: -5px; left: 410px; width: 350px; height: 180px;">
+		<!--Imagen del barner inferior-->
+		<img src="../imagenes/png/Barras/Barner_sus.png" style="border: 0px solid; position: absolute; top: 399px; left: -12px; width: 1035px; height: 172px;">
+	</body>
+</html>
+
+<!--Posicionamiento e insercion de las imagenes del menu-->
+<script>
+   euEnv.imageBasePath="js/";
+   var dock_4 = new euDock();   
+   dock_4.setScreenAlign(euDOWN,15);
+   dock_4.setBar({left:{euImage:{image:"../imagenes/png/menu/barImages/dockBg-l.png"}},horizontal:{euImage:{image:"../imagenes/png/menu/barImages/dockBg-c-o.gif"}},
+		right:{euImage:{image:"../imagenes/png/menu/barImages/dockBg-r.png"}}});   
+   dock_4.setIconsOffset(2);   		
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Inicio.png" }}),{link:"../Presentacion/index.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Ubicacion.png"}}),{link:"../Paginas/Ubicacion.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Importancia.png"}}),{link:"../Paginas/Importancia.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Personajes.png"}}),{link:"../Paginas/Personajes.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Galeria.png"}}),{link:"../Paginas/Galeria.html"});
+   dock_4.addIcon(new Array({euImage:{image:"../imagenes/png/Botones/Boton_orientaciones.png"}}),{link:"../Paginas/Orientaciones.html"});
+</script>
